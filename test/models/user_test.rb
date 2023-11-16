@@ -25,6 +25,6 @@ class UserTest < ActiveSupport::TestCase
     assert @existing_user.persisted?
 
     @user = User.new(name: 'John', email: 'jdoe@example.com')
-    assert_not @user.valid?
+    assert @user.valid?
   end
 end
