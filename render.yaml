@@ -14,7 +14,7 @@ services:
       - key: RAILS_MASTER_KEY
         sync: false
 
-database:
-  - name: piazza-production
+databases:
+  - name: piazza-db
     plan: free
     postgresMajorVersion: 14
