@@ -27,4 +27,14 @@ class UserTest < ActiveSupport::TestCase
     @user = User.new(name: 'John', email: 'jdoe@example.com')
     assert @user.valid?
   end
+
+  test 'name and email is stripped of spaces before saving' do
+    @user = User.create(
+      name: 'John ',
+      email: ' john@example.com',
+    )
+
+    assert_equal 'John', @user.name
+    assert_equal 'john@example.com', @user.email
+  end
 end
