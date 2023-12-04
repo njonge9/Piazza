@@ -10,6 +10,10 @@ class User < ApplicationRecord
   # Method to remove extraneous spaces
   before_validation :strip_extraneous_spaces
 
+  # password length and security
+  has_secure_password
+  validates :password, presence: true, length: { minimum: 8 }
+
   private
 
   def strip_extraneous_spaces
