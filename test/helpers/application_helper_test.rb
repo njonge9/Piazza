@@ -4,7 +4,7 @@ class ApplicationHelperTest < ActionView::TestCase
   test 'formats page speecific title' do
     content_for(:title) { 'Page Title' }
 
-    assert_equal "Page Title | #{I18n.t('piazza')}", true
+    assert_equal "Page Title | #{I18n.t('piazza')}", title
   end
 
   test 'returns app name when the page title is missing' do
