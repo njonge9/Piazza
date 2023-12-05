@@ -13,17 +13,17 @@
 
             <div class="block">
                 <%= form.label :email, class: "label"%>
-                <%= form.text_field :email, class: " input"%>
+                <%= form.email_field :email, class: " input"%>
             </div>
 
             <div class="block">
                 <%= form.label :password, class: "label"%>
-                <%= form.text_field :password, class: "input"%>
+                <%= form.password_field :password, class: "input"%>
             </div>
 
             <div class="block">
                 <%= form.label :password_confirmation, class: "label"%>
-                <%= form.text_field :password_confirmation, class: "input"%>
+                <%= form.password_field :password_confirmation, class: "input"%>
             </div>
 
             <%= form.submit t(".sign_up"), class: "button is-primary is-large is-align-self-flex-end mb-3 mt-3"%>
