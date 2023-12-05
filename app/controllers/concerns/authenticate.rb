@@ -1,5 +1,5 @@
 module Authenticate
-  extend Activesupport::Concern
+  extend ActiveSupport::Concern
 
   protected
 
