@@ -8,7 +8,22 @@ module Authenticate
     helper_method :logged_in?
   end
 
+  class_methods do
+    def skip_authentication(**options)
+      skip_before_action :authenticate, options
+      skip_before_action :require_login, options
+    end
+
+    def allow_unauthenticated(**options)
+      skip_before_action :require_login, options
+    end
+  end
+
   protected
+
+  def logged_in?
+    Current.user.present?
+  end
 
   # A method to store the users data in an encrypted cookie
   # This cookie will last for 20 years by chaining permanent
@@ -20,6 +35,11 @@ module Authenticate
   end
 
   private
+
+  def require_login
+    flash.now[:notice] = t("login_required")
+    render "sessions/new", status: :unauthorized
+  end
 
   def authenticate
     Current.app_session = authenticate_using_cookie
