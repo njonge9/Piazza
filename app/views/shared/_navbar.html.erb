@@ -14,15 +14,27 @@
     <navbar-menu class="navbar-menu">
         <div class="navbar-start">
             <%= link_to t(".create_ad"), "#", class: "navbar-item" %>
+            <%= link_to t(".messages"), "#", class: "navbar-item" if logged_in? %>
         </div>
 
         <div class="navbar-end">
+            <%= tag.div class: "navbar-item has-dropdown is-hoverable mr-4" do%>
+                <%= link_to Current.user.name, "#", class: "navbar-link" %>
+                <div class="navbar-dropdown is-right">
+                    <%= link_to t(".profile"), "#", class: "navbar-item" %>
+                    <%= link_to t(".my_ads"), "#", class: "nav-item"%>
+                    <hr class="navbar-divider">
+
+                    <%= link_to t(".logout"), "#", class: "navbar-item"%>
+                </div>
+            <% end if logged_in?%>
+
             <%= tag.div class: "navbar-item" do%>
                 <div class="buttons">
                     <%= link_to t(".sign_up"), sign_up_path, class: "button is-primary" %>
                     <%= link_to t(".login"), login_path, class: "button is-light" %>
                 </div>
-            <% end %>
+            <% end unless logged_in?%>
         </div>
     </navbar-menu>
 </nav>
