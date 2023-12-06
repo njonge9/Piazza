@@ -6,3 +6,4 @@ en:
           attributes:
             password:
               too_short: must be at least 8 characters long
+      
