@@ -9,11 +9,13 @@ module Authenticate
   end
 
   class_methods do
+    # Skips the authentication process and it will be used for Log In page.
     def skip_authentication(**options)
       skip_before_action :authenticate, options
       skip_before_action :require_login, options
     end
 
+    # Used for pages that need to know if a user is logged in
     def allow_unauthenticated(**options)
       skip_before_action :require_login, options
     end
