@@ -4,7 +4,7 @@ module User::Authentication
   included do
     # password length and security
     has_secure_password
-    validates :password, presence: true, length: { minimum: 8 }
+    validates :password, on: [:create, :password_change], presence: true, length: { minimum: 8 }
 
     # A user can have many app sessions
     has_many :app_sessions
