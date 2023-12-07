@@ -3,10 +3,13 @@ module User::PasswordReset
 
   included do
     has_secure_password :password_reset_token, validation: false
+
+    before_save -> { self.password_reset_token = nil },
+      if: -> { password_digest_change_to_be_saved.present?}
   end
 
   class_methods do
-    def find_bypassword_reset_id(id)
+    def find_by_password_reset_id(id)
       message_verifier.verified(
         CGI.unescape(id),
         purpose: :password_reset
