@@ -3,6 +3,7 @@ en:
     new:
       title: Log In
       submit: Login
+      password_reset: Forgot your password?
     create:
       success: You have been logged in!
       incorrect_details: The email or password was incorrect. Please try again.
