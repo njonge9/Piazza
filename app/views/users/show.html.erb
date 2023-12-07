@@ -21,6 +21,9 @@
         <% end %>
         </layout-column>
     </layout-columns>
+    <%= turbo_stream.update :current_user_name do %>
+        <% Current.user.name%>
+    <% end %>
 <% end %>
 
 <%= turbo_frame_tag :change_password do %>
