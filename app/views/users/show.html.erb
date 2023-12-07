@@ -17,6 +17,7 @@
                 <%= form.email_field :email, class: "input" %>
             </div>
         <%= form.submit t(".save_profile"), class: "button is-primary is-align-self-flex-end mb-3 mt-3" %>
+        <%= render "shared/flashes" if turbo_frame_request?%>
         <% end %>
         </layout-column>
     </layout-columns>
@@ -41,6 +42,7 @@
                 </div>
 
                 <%= form.submit t(".change_password_button"), class: "button is-primary is-align-self-flex-end mb-3 mt-3"%>
+                <%= render "shared/flashes" if turbo_frame_request? %>
             <% end %>
         </layout-column>
     </layout-columns>
