@@ -11,3 +11,9 @@ en:
       create:
         title: Email sent!
         message: Check your email for a link to set a new password.
+      edit:
+        title: Enter a new password
+        submit: Change password
+      update:
+        success: Your password has been reset successfully!
+      invalid_link: Sorry, that link isnt valid. Please try again.
