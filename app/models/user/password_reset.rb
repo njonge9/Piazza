@@ -2,7 +2,7 @@ module User::PasswordReset
   extend ActiveSupport::Concern
 
   included do
-    has_secure_password :password_reset_token, validation: false
+    has_secure_password :password_reset_token, validations: false
 
     before_save -> { self.password_reset_token = nil },
       if: -> { password_digest_change_to_be_saved.present?}

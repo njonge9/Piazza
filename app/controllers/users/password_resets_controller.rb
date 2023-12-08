@@ -18,7 +18,7 @@ class Users::PasswordResetsController < ApplicationController
 
     if @user.save(context: :password_change)
       @app_session = @user.app_sessions.create
-      log_in(app_session)
+      log_in(@app_session)
 
       redirect_to root_path, status: :see_other, flash: { success: t(".success") }
     else
