@@ -19,7 +19,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_not_empty cookies[:app_session]
 
     follow_redirect!
-    assert_select ".notification.is_success",
+    assert_select ".notification.is-success",
       text: I18n.t("users.create.welcome", name: "John")
   end
 

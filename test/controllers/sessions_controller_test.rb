@@ -27,7 +27,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
       }
     }
 
-    assert_select ".notifications",
+    assert_select ".notification",
     I18n.t("sessions.create.incorrect_details")
   end
 end

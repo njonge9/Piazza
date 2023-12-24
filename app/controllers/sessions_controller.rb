@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_authentication only: [:new, :create]
+
   def new
   end
 
@@ -17,6 +19,13 @@ class SessionsController < ApplicationController
       flash.now[:danger] = t(".incorrect_details")
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    log_out
+
+    flash[:success] = t(".success")
+    redirect_to root_path, status: :see_other
   end
 
   private
